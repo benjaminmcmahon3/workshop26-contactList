@@ -1,6 +1,7 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import ContactRow from './ContactRow';
+import React from 'react'
+
 
 // dummyContacts manually inserted into the useState
 const dummyContacts = [
@@ -25,7 +26,6 @@ function ContactList({setSelectedContactId}){
         const response = await fetch('https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users')
         const result = await response.json();
         setContacts(result)
-        console.log(result)
 
       } catch(error){
 
@@ -62,6 +62,6 @@ function ContactList({setSelectedContactId}){
     </table>
   );
 
-};
+}
 
 export default ContactList

@@ -1,12 +1,11 @@
-import React from "react";
-import ContactList from "./ContactList";
+import React from 'react'
+
 
 function ContactRow ({contact, setSelectedContactId}) {
 
   return (
     <tr onClick={() => {
           setSelectedContactId(contact.id);
-          console.log(`From ContactRow, ID selected: ${contact.id}`)
         }}
     >
       <td>{contact.name}</td>

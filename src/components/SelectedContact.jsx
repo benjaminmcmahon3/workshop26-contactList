@@ -1,6 +1,6 @@
-import React from "react";
-import ContactList from "./ContactList";
+import React from 'react'
 import { useEffect, useState } from "react";
+import App from '../App.jsx'
 
 function SelectedContact ({selectedContactId, setSelectedContactId}) {
 
@@ -9,11 +9,10 @@ function SelectedContact ({selectedContactId, setSelectedContactId}) {
   useEffect(()=>{
     async function fetchSelected (){
       try{
-
+        console.log(`fetch the ID: ${selectedContactId}`)
         const response = await fetch(`https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/${selectedContactId}`)
         const result = await response.json()
-        setContact(result)
-        console.log(contact)
+        return setContact(result)
 
       }catch(error){
         console.error(error)
@@ -21,9 +20,14 @@ function SelectedContact ({selectedContactId, setSelectedContactId}) {
     }
     fetchSelected()
   },[])
+
+  console.log(contact)
+
   return (
     <>
-      {console.log(contact)}
+      <p>{contact.name}</p>
+      <p>{contact.username}</p>
+      <p>{contact.email}</p>
     </>
   )
 
